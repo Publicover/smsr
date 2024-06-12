@@ -28,6 +28,6 @@ class SmsTextPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    [:user_id, :body]
+    [:user_id, :body, :multipart_text]
   end
 end

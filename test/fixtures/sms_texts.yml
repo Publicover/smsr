@@ -11,3 +11,19 @@ two:
 three:
   user: two 
   body: <%= Faker::Lorem.sentence(word_count: 5) %>
+
+short_whole: 
+  user: one 
+  body: <%= Faker::Lorem.characters(number: 50) %>
+
+medium_whole:
+  user: one 
+  body: <%= Faker::Lorem.characters(number: 160) %>
+
+medium_split:
+  user: one 
+  body: <%= Faker::Lorem.characters(number: 161) %>
+
+long_split: 
+  user: one 
+  body: <%= Faker::Lorem.sentence(word_count: 100) %>

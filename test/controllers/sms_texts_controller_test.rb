@@ -29,6 +29,17 @@ class SmsTextsControllerTest < ActionDispatch::IntegrationTest
     assert_response :created
   end
 
+  test 'should create if long text' do 
+    post sms_texts_path, params: {
+      sms_text: {
+        user_id: users(:one).id, 
+        body: Faker::Lorem.sentence(word_count: 100)
+      }
+    }.to_json, headers: @user_headers
+    text = SmsText.last
+    refute text.multipart_text.nil?
+  end
+
   test 'should update' do 
     new_body = 'So short!'
     patch sms_text_path(sms_texts(:one)), 
